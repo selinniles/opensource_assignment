@@ -45,6 +45,10 @@ function iqr(numbers){
 }
 function outlier(numbers){
     var len = numbers.length;
+    var unsorted = [];
+    for (let i = 0; i < numbers.length; i++) {
+        unsorted[i] = numbers[i];
+      }
     numbers.sort(function(num_1,num_2){return num_1-num_2});
     if (len % 2 === 1) {
         var middle_index = Math.floor(len / 2);
@@ -59,16 +63,15 @@ function outlier(numbers){
     var q1 = first_half[Math.floor(first_half.length / 2)];
     var q3 = second_half[Math.floor(second_half.length / 2)]
     var interquartile = Math.abs(q1-q3);
-    var all_outliers = [];
+    
     for (let i = 0; i < numbers.length; i++){
         if (numbers[i] < (q1 - (1.5 * interquartile))){
-            all_outliers.push(numbers[i]);
+            console.log(unsorted[i]);
         }
         else if(numbers[i] > (q3 + (1.5 * interquartile))){
-            all_outliers.push(numbers[i]);
+            console.log(unsorted[i]);
         }
     }
-    return all_outliers;
 }
 
 exports.sum = sum;
