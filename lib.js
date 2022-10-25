@@ -13,8 +13,8 @@ function max(numbers) {
 }
 function med(numbers) {
     var len = numbers.length;
+    numbers.sort(function(num_1,num_2){return num_1-num_2});
     if (len % 2 === 1) {
-        numbers.sort(function(num_1,num_2){return num_1-num_2});
         var middle = Math.floor(len / 2);
         return numbers[middle];
     }

@@ -1,3 +1,5 @@
+#!/usr/bin/env
+
 const lib = require("./lib");
 if (process.argv.length <= 3) {
     console.log("Insufficient parameter!");
